@@ -15,7 +15,7 @@ class Pi5Neo:
         self.num_leds = num_leds
         self.spi_speed = spi_speed_khz * 1024 * 8  # Convert kHz to bytes per second
         self.spi = spidev.SpiDev()  # Create SPI device instance
-        self.raw_data = [0] * (self.num_leds * 24)  # Placeholder for raw data sent via SPI
+        self.raw_data = [0] * (self.num_leds * 24 + 8)  # Placeholder for raw data sent via SPI
         self.led_state = [LEDColor()] * self.num_leds  # Initial state for each LED (off)
 
         # Open the SPI device
@@ -82,7 +82,10 @@ class Pi5Neo:
         - sleep_duration (float): The duration (in seconds) to pause after sending the data.
           If None, no delay is introduced.
         """
-        total_bytes = 0
+        for i in range(8):
+           self.raw_data[i] = 0x0
+
+        total_bytes = 8
         for i in range(self.num_leds):
             led = self.led_state[i]  # Get the color for each LED
             bitstream = self.rgb_to_spi_bitstream(led.red, led.green, led.blue)
