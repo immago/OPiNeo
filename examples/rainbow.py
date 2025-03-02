@@ -1,6 +1,6 @@
 #Running Rainbow Wave (Rainbow colors move across the strip)
 import time
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def running_rainbow(neo, delay=0.05):
     colors = [
@@ -21,8 +21,8 @@ def running_rainbow(neo, delay=0.05):
             neo.update_strip()
             time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Rainbow wave across the strip
 running_rainbow(neo)

@@ -1,6 +1,6 @@
 #Breathing Effect for a Single LED (LED slowly fades in and out)
 import time
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def breathing_led(neo, led_index, color, steps=50, delay=0.05):
     for i in range(steps):
@@ -14,8 +14,8 @@ def breathing_led(neo, led_index, color, steps=50, delay=0.05):
         neo.update_strip()
         time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Breathing effect on 1st LED with red color
 breathing_led(neo, 0, (255, 0, 0))

@@ -1,6 +1,6 @@
 #Knight Rider / Cylon Effect (A scanning LED light that moves back and forth)
 import time
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def knight_rider(neo, color, delay=0.05):
     num_leds = neo.num_leds
@@ -18,8 +18,8 @@ def knight_rider(neo, color, delay=0.05):
             neo.update_strip()
             time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Knight Rider effect with red color
 knight_rider(neo, (255, 0, 0))

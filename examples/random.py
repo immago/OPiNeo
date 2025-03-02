@@ -1,7 +1,7 @@
 #Random LED Blink
 import time
 import random
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def random_blink(neo, num_blinks=10, delay=0.2):
     for _ in range(num_blinks):
@@ -13,6 +13,6 @@ def random_blink(neo, num_blinks=10, delay=0.2):
         neo.set_led_color(led_index, 0, 0, 0)  # Turn off the LED
         neo.update_strip()
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 random_blink(neo)

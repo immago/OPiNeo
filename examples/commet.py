@@ -1,6 +1,6 @@
 #Comet Trail (A moving LED with a trailing fade effect)
 import time
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def comet_trail(neo, color, delay=0.1):
     num_leds = neo.num_leds
@@ -17,8 +17,8 @@ def comet_trail(neo, color, delay=0.1):
             neo.update_strip()
             time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Blue comet trail effect
 comet_trail(neo, (0, 0, 255))

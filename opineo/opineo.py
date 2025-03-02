@@ -1,4 +1,4 @@
-# pi5neo/pi5neo.py
+# opineo/opineo.py
 import spidev
 import time
 
@@ -9,9 +9,9 @@ class LEDColor:
         self.green = green
         self.blue = blue
 
-class Pi5Neo:
-    def __init__(self, spi_device='/dev/spidev0.0', num_leds=10, spi_speed_khz=800):
-        """Initialize the Pi5Neo class with SPI device, number of LEDs, and speed"""
+class OPiNeo:
+    def __init__(self, spi_device='/dev/spidev1.1', num_leds=10, spi_speed_khz=800):
+        """Initialize the OPiNeo class with SPI device, number of LEDs, and speed"""
         self.num_leds = num_leds
         self.spi_speed = spi_speed_khz * 1024 * 8  # Convert kHz to bytes per second
         self.spi = spidev.SpiDev()  # Create SPI device instance

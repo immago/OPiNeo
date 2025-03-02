@@ -1,5 +1,5 @@
-#basic example of using the Pi5Neo class to control a NeoPixel strip
-from pi5neo import Pi5Neo  # Import the Pi5Neo class
+#basic example of using the OPiNeo class to control a NeoPixel strip
+from opineo import OPiNeo  # Import the OPiNeo class
 import time
 
 def demo_solid_color(neo, red, green, blue, duration=2):
@@ -24,8 +24,8 @@ def demo_rainbow_cycle(neo, delay=0.1):
         neo.update_strip()
         time.sleep(delay)
 
-# Initialize the Pi5Neo class with 10 LEDs
-pi5_neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize the OPiNeo class with 10 LEDs
+pi5_neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Run demo functions
 demo_solid_color(pi5_neo, 255, 0, 0)  # Red strip

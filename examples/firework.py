@@ -1,7 +1,7 @@
 #Firework Animation (LEDs "explode" in different colors)
 import time
 import random
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def firework(neo, delay=0.05):
     center = random.randint(0, neo.num_leds - 1)
@@ -17,8 +17,8 @@ def firework(neo, delay=0.05):
         neo.update_strip()
         time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Random fireworks effect
 while True:

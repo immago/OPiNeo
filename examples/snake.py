@@ -1,6 +1,6 @@
 #Snake Effect (LEDs light up in a snake-like motion)
 import time
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def snake_effect(neo, color, delay=0.05, snake_length=3):
     while True:
@@ -12,8 +12,8 @@ def snake_effect(neo, color, delay=0.05, snake_length=3):
             neo.update_strip()
             time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 10, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 10, 800)
 
 # Green snake effect
 snake_effect(neo, (0, 255, 0))

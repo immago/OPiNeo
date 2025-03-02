@@ -1,7 +1,7 @@
 #Meteor Shower (Multiple "meteors" falling randomly)
 import time
 import random
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 
 def meteor_shower(neo, delay=0.1, meteor_length=3):
     while True:
@@ -17,8 +17,8 @@ def meteor_shower(neo, delay=0.1, meteor_length=3):
             neo.update_strip()
             time.sleep(delay)
 
-# Initialize Pi5Neo with 10 LEDs
-neo = Pi5Neo('/dev/spidev0.0', 8, 800)
+# Initialize OPiNeo with 10 LEDs
+neo = OPiNeo('/dev/spidev1.1', 8, 800)
 
 # Random meteor shower effect
 meteor_shower(neo)

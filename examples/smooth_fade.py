@@ -1,5 +1,5 @@
 # Smooth fade animation based on cosine
-from pi5neo import Pi5Neo
+from opineo import OPiNeo
 import time
 from math import cos
 
@@ -12,8 +12,8 @@ def smooth_fade(neo):
     neo.update_strip(sleep_duration=0.01)
 
 
-# Initialize Pi5Neo with 300 LEDs
-neo = Pi5Neo('/dev/spidev0.0', num_leds=300, spi_speed_khz=800)
+# Initialize OPiNeo with 300 LEDs
+neo = OPiNeo('/dev/spidev1.1', num_leds=300, spi_speed_khz=800)
 
 # Smooth fade effect
 while True:
